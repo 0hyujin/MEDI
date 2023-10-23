@@ -8,11 +8,12 @@ const LoginInput = styled.input`
     border: none;
     border-radius: 0.5vw;
     outline: none;
-    font-size: 2rem;
+    font-size: 1vw;
     box-sizing: border-box;
     padding: 2vw;
     color: ${colors.white};
-    margin-bottom: 1rem;
+    align-items: center;
+    margin-top: -0.6vw;
 `
 
 const LoginInputContainer = ({ type, placeholder }) => {

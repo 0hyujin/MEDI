@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Team from "./pages/Team";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Calc from "./pages/Calc";
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/team" element={<Team />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/singup" element={<Signup />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/calc" element={<Calc />} />
         </Routes>
         <Footer/>
       </Router>
