@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
 import colors from "../../styles/colors";
 
 const StyleItem = styled.div`
@@ -63,7 +63,6 @@ const ItemDrug = (props) => {
             <ImageContainer>
                 <img src={img} alt="drug" />
             </ImageContainer>
-            {console.log(img)}
         </StyleItem>
     )
 }

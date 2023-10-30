@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from "styled-components";
+import styled from "styled-components";
 import colors from "../../styles/colors";
 
 const StyleItem = styled.div`
@@ -49,7 +49,7 @@ const ItemTeam = ({ id, name, number, track, role, git, img }) => {
                     <TeamP style={{fontWeight: "normal"}}>{role}</TeamP>
                     <div style={{display: "flex", alignItems: "center", gap: "0.5vw", marginTop: "-1.5vw"}}>
                         <TeamP style={{fontWeight: "normal"}}>Github: </TeamP>
-                        <GitLink href={git} target="_blank" rel="noopener noreferrer">{git}</GitLink>
+                        <GitLink href={git} target="_blank" rel="noopener noreferrer"><TeamP>{git}</TeamP></GitLink>
                     </div>
                 </div>
             </Member>

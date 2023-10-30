@@ -1,14 +1,13 @@
-import { Link } from "react-router-dom";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import colors from "../../styles/colors";
 
 const ButtonAuth = styled.button`
     width: 100%;
-    height: 6.5rem;
+    height: 4vw;
     background-color: ${colors.mainBlue};
     border: none;
     border-radius: 0.5vw;
-    font-size: 2.5rem;
+    font-size: 2vw;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -21,14 +20,13 @@ const ButtonAuth = styled.button`
     }
 `
 
-const AuthButton = ({ buttonText, linkTo, type }) => {
+const AuthButton = ({ buttonText, onClick }) => {
     return (
-        <Link to={linkTo}>
-            <ButtonAuth type={type}>
-                <p>{buttonText}</p>
-            </ButtonAuth>
-        </Link>
+        <ButtonAuth type="submit" onClick={onClick}>
+            <p>{buttonText}</p>
+        </ButtonAuth>
     )
 }
+
 
 export default AuthButton

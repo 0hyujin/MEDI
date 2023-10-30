@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import colors from "../styles/colors";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 import LoginButton from "../components/button/button-auth";
 import Input from "../components/input/input-auth";
@@ -66,9 +66,9 @@ const Login = () => {
             </LoginContainer>
 
             <div style={{display: "flex", gap: "1rem", opacity: "0.5", fontSize: "0.5rem"}}>
-                <LoginP fontSize="1.5rem">아직 회원이 아니신가요?</LoginP>
+                <LoginP fontSize="1.5vw">아직 회원이 아니신가요?</LoginP>
                 <StyledLink to="/signup">
-                    <LoginP fontSize="1.5rem">회원가입 하기</LoginP>
+                    <LoginP fontSize="1.5vw">회원가입 하기</LoginP>
                 </StyledLink>
             </div>
         </div>
