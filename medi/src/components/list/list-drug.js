@@ -21,6 +21,7 @@ const ListDrug = ({data}) => {
                 return (
                     <ItemDrug
                         key = {index}
+                        id = {item.id}
                         img={require(`../../assets/${item.image}`)}
                         company = {item.company}
                         type = {item.type}
@@ -30,5 +31,6 @@ const ListDrug = ({data}) => {
         </StyleGrid>
     )
 }
+
 
 export default ListDrug;

@@ -9,7 +9,8 @@ const colors = {
     silver: "#808080",
     lightgray :"#D3D3D3",
     black: "#000000",
-    white: "#ffffff"
+    white: "#ffffff",
+    darkslateblue: "#484A64"
 };
 
 export default colors

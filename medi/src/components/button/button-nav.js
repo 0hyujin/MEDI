@@ -9,7 +9,7 @@ const NavButton = styled.div`
     border: none;
     color: ${(props) =>
         props.isclick === "true" ? colors.mainBlue : colors.white};
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -20,9 +20,16 @@ const NavButton = styled.div`
     }
 `;
 
+
 const ButtonNav = ({ buttonText, linkTo }) => {
     const location = useLocation();
-    const isclick = (location.pathname === linkTo).toString();
+    let isclick = "false";
+
+    if (linkTo === "/calc" && location.pathname === "/result") {
+        isclick = "true";
+    } else if (location.pathname === linkTo) {
+        isclick = "true";
+    }
 
     return (
         <Link to={linkTo}>

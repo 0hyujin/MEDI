@@ -31,22 +31,20 @@ const ImageContainer = styled.div`
 
     img {
         width: 90%;
-        height: 18rem;
-        margin-bottom: 1vw;
-        margin-top: 1vw;
+        height: 10vw;
+        margin: 1vw 0 1vw 0;
 
-        @media screen and (max-width:1000px) {
-            width: 90%;
-            height: 16rem;
+        @media (max-width: 600px) {
+            height: 17vw;
         }
     }
 `
 
 const ItemDrug = (props) => {
-    const { img, type, company } = props;
+    const { id, img, type, company } = props;
 
     return (
-        <StyleItem>
+        <StyleItem key={id}>
             <ItemContainer>
                 <div style={{
                     width: "0.5rem",
