@@ -8,6 +8,7 @@ import DeleteCalc from "../components/button/button-delete";
 import Completebutton from "../components/button/button-result";
 import DrugData from "../util/drug";
 import { useNavigate } from 'react-router-dom';
+import Loading from "../pages/Loading";
 
 const CalcBannerP1 = styled.p`
     color: ${colors.white};
@@ -44,7 +45,7 @@ const CalcExplainBar = styled.div`
 `
 // 하늘색 박스
 const CalcBox = styled.div`
-    width: 95%;
+    width: 80%;
     border-radius: 2.5vw;
     margin-top: 5rem;
     background-color: ${colors.subBlue};
@@ -53,6 +54,13 @@ const CalcTitle = styled.div`
     font-size : 1.5vw;
     margin-left : 5rem;
     margin-top : 4rem;
+
+    // margin : 1.5% auto;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+
+
     color : ${colors.white};
     text-shadow: 2.5px 2px 2px gray; 
 `
@@ -75,7 +83,7 @@ const CalcListContainerBig = styled.div`
     width: 45%;
     border-radius: 1.5vw;
     background-color: ${colors.white};
-    margin: 1% auto;
+    margin: 1.5% auto;
 `
 // 상품 목록 글씨
 const CalcListEx = styled.div`
@@ -113,10 +121,9 @@ const CalcListContainer = styled.div`
 `
 // 회색 영양제 박스
 const CalcList = styled.div`
-    width: 40%;
+    width: 45%;
     height: 30%;
-    margin: 4%;
-    //margin-top: 0;
+    margin: 2%;
     display: flex;
     text-align: justify;
     border-radius: 1.5vw;
@@ -148,24 +155,15 @@ const CalcCheckedContainer = styled.div`
     min-height: 20vw;
     border-radius: 1.5vw;
     background-color: ${colors.white};
-    margin: 1% auto;
+    margin: 1.5% auto;
     align-items: center; //수직정렬
     
 `
 // 선택된 영양제
 const CheckedPills = styled.div`
-    // display: flex;
-    // align-items: center; //수직정렬
-    // flex-direction: column; // 세로로 정렬
-    // justify-content: center; //수평정렬
-    // margin: auto;
-    // margin-top:1vw;
-    // width: 100%;
-    // gap: 2vw;
-
     display: flex;
     flex-wrap: wrap; // 아이템을 다음 줄로 감싸도록 설정
-    justify-content: space-between; 
+    justify-content: center; 
     height: 15vw;
     @media (min-height: 30%) {
         flex-direction: column; // 작은 화면에서는 세로로 정렬되도록 변경
@@ -174,7 +172,7 @@ const CheckedPills = styled.div`
 `
 
 const PillsImage = styled.img`
-    width: 35%;
+    width: auto;
     height: 75%;
 `
 
@@ -184,11 +182,12 @@ const CalcPills = styled.div`
     
 `
 const CalcCom = styled.div`
+font-size: 0.8vw;
     color: black;
 `
 const CalcPillsName = styled.div`
     color: black;
-    font-size: 1.5vw;
+    font-size: 1vw;
 `
 
 const CalcPillsName2 = styled.div`
@@ -220,6 +219,7 @@ const Flex2 = styled.div`
 const Calc = () => {
     const [selectedItems, setSelectedItems] = useState([]);
     const [searchTerm, setSearchTerm] = useState(''); // 사용자의 입력 값을 저장할 상태
+    const [loading, setLoading] = useState('');
     const navigate = useNavigate();
     
     const submit = () => {
@@ -228,13 +228,19 @@ const Calc = () => {
         const selectedDataCalcs = selectedItems.map( selectedId =>{
             return DrugData.find(item =>item.id === selectedId)
         });
+
         if(selectedDataCalcs.length > 0){
             selectedDataCalcs.forEach( item =>{
                 console.log(item)
             });
-            navigate( "/result", { state: { selectCalcs: selectedDataCalcs } });
+            navigate("/loading");
+            setTimeout(() => {
+                navigate( "/result", { state: { selectCalcs: selectedDataCalcs } });
+            }, 3000);
+
         }
-    };
+
+    }
 
     // 사용자의 입력 값이 type 또는 name과 일치하는 항목을 필터링
     const filteredDrugs = DrugData.filter(drug =>
@@ -253,7 +259,7 @@ const Calc = () => {
             setSelectedItems(selectedItems.filter(item => item !== id));
             console.log(selectedItems);
         } else {
-            if (selectedItems.length < 4) {
+            if (selectedItems.length < 6) {
                 // 5개 미만일 때만 새로운 항목을 선택
                 setSelectedItems([...selectedItems, id]);
                 console.log(selectedItems);
@@ -281,7 +287,7 @@ const Calc = () => {
             marginBottom: "5vw"
         }}>
 
-            {/* <CalcExplainContainer>
+            <CalcExplainContainer>
                 <CalcExplain>
                     <UserImage src={doctor} alt="doctor"/>
                     <CalcExplainBar/>
@@ -293,7 +299,7 @@ const Calc = () => {
                         </CalcBannerP2>
                     </div>
                 </CalcExplain>
-            </CalcExplainContainer> */}
+            </CalcExplainContainer>
 
             {/* 하늘색박스 */}
             <CalcBox>
@@ -312,7 +318,7 @@ const Calc = () => {
                         
                         <Flex2>
                             <CalcListEx>상품 목록</CalcListEx>
-                            <Warning>* 최대 5개까지 선택할 수 있습니다.</Warning>
+                            <Warning>* 최대 6개까지 선택할 수 있습니다.</Warning>
                         </Flex2>
                         
                         {/* 회색박스 */}
@@ -344,13 +350,17 @@ const Calc = () => {
                             {selectedItems.map(id => {
                                 const selectedDrug = DrugData.find(drug => drug.id === id);
                                 return (
-                                    <div key={selectedDrug.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48%'  }}>
-                                        <CalcButton buttonText="-"  onClick={() => handleDeleteItem(selectedDrug.id)} ></CalcButton>
-                                        <UserImage
-                                            src={require(`../assets/${selectedDrug.image}`)}
-                                            alt={selectedDrug.name}
-                                            style={{ width: "30%", height: "30%", margin: "0 1%"}}
-                                        />
+                                    <div key={selectedDrug.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' ,  width: '30%'  }}>
+                                        
+                                        <div style={{ display: 'flex',  justifyContent: 'center',  alignItems: 'center'}}>
+                                            <CalcButton buttonText="-"  onClick={() => handleDeleteItem(selectedDrug.id)} ></CalcButton>
+                                            <UserImage
+                                                src={require(`../assets/${selectedDrug.image}`)}
+                                                alt={selectedDrug.name}
+                                                style={{ width: "50%", height: "50%", margin: "0 1%"}}
+                                            />
+                                        </div>
+                                        
                                         <div>
                                             <CalcPillsName2>{selectedDrug.type}</CalcPillsName2>
                                         </div>
@@ -373,7 +383,6 @@ const Calc = () => {
 
         
     )
-}
 
-
+};
 export default Calc

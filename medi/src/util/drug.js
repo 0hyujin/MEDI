@@ -42,7 +42,7 @@ const DrugData = [
         "image": "images/drug-3.png",
         "explain": "물에 잘 녹는 수용성 비타민으로, 식전 복용을 추천드립니다. 밤에는 수면 방해로 인해 복용을 권장하지 않습니다.",
 
-        "modalExplain": "비타민 B1은 체내 에너지 생산에 중요한 역할을 하는 영양소입니다.효능으로는 인지 건강, 운동능력 증진, 체중 조절, 심장 건강 등이 있습니다.식품으로는 싱싱한 고기, 계란 노른자, 우유, 곡식, 채소, 과일 등을 통해 섭취가 가능합니다.",
+        "modalExplain": "비타민 B1은 체내 에너지 생산에 중요한 역할을 하는 영양소입니다. 효능으로는 인지 건강, 운동능력 증진, 체중 조절, 심장 건강 등이 있습니다.식품으로는 싱싱한 고기, 계란 노른자, 우유, 곡식, 채소, 과일 등을 통해 섭취가 가능합니다.",
         "modalImage1": "images/food-meat.png",
         "modalImage2": "images/food-egg.png",
         "modalImage3": "images/food-milk.png",
@@ -223,7 +223,7 @@ const DrugData = [
         "modalImage3": "images/food-butter.png",
         "modalImage4": "images/food-milk.png",
 
-        "selectType": "칼슘",
+        "selectType": "칼슘/마그네슘",
         "selectExplain": "뼈건강"
     },
     {
@@ -240,7 +240,7 @@ const DrugData = [
         "modalImage3": "images/food-butter.png",
         "modalImage4": "images/food-milk.png",
 
-        "selectType": "칼슘",
+        "selectType": "칼슘/마그네슘",
         "selectExplain": "뼈건강"
     },
     {
@@ -258,7 +258,7 @@ const DrugData = [
         "modalImage3": "images/food-dailyproduct.png",
         "modalImage4": "images/food-chocolate.png",
 
-        "selectType": "마그네슘",
+        "selectType": "칼슘/마그네슘",
         "selectExplain": "뼈건강"
     },
     {
@@ -275,7 +275,7 @@ const DrugData = [
         "modalImage3": "images/food-dailyproduct.png",
         "modalImage4": "images/food-chocolate.png",
         
-        "selectType": "마그네슘",
+        "selectType": "칼슘/마그네슘",
         "selectExplain": "뼈건강"
     },
     {
@@ -293,7 +293,7 @@ const DrugData = [
         "modalImage3": "images/food-bean.png",
         "modalImage4": "images/food-fish.png",
 
-        "selectType": "철분제",
+        "selectType": "철분제/오메가3",
         "selectExplain": "임산부추천"
     }, 
     {
@@ -310,7 +310,7 @@ const DrugData = [
         "modalImage3": "images/food-bean.png",
         "modalImage4": "images/food-fish.png",
 
-        "selectType": "철분제",
+        "selectType": "철분제/오메가3",
         "selectExplain": "임산부추천"
     },
     {
@@ -328,7 +328,7 @@ const DrugData = [
         "modalImage3": "images/food-seaweed.png",
         "modalImage4": "images/food-fish.png",
 
-        "selectType": "오메가3",
+        "selectType": "철분제/오메가3",
         "selectExplain": "혈관건강"
     },
     {
@@ -345,7 +345,7 @@ const DrugData = [
         "modalImage3": "images/food-seaweed.png",
         "modalImage4": "images/food-fish.png",
 
-        "selectType": "오메가3",
+        "selectType": "철분제/오메가3",
         "selectExplain": "혈관건강"
     }
 ]
