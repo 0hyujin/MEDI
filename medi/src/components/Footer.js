@@ -9,15 +9,17 @@ const FooterDiv = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 10rem;
     background-color: ${colors.gray};
     position: ${({ islogin, isloading }) => (islogin === "true" || isloading === "true" ? "fixed" : "relative")};
     bottom: 0;
-    left: 0;
-    margin-top: 10rem;
-
+    left: 0;  
+    
     & img {
         width: 33.333rem;
     }
+
+
 
     @media (max-width: 650px) {
         ${({ isteam }) =>
@@ -44,7 +46,7 @@ const FooterDiv = styled.div`
             position: fixed;
             bottom: 0;
         `}
-    }
+    } 
 `;
 
 
@@ -62,7 +64,5 @@ const Footer = () => {
         </FooterDiv>
     );
 };
-
-
 
 export default Footer;
