@@ -2,27 +2,16 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import colors from "../../styles/colors";
 
-// 전체 틀 스타일
 const StyleItem = styled.div`
-  margin-top: 5vw;
-  width: 80%;
+  width: 100%;
   min-height: 16vw;
-  //border: none;
-  //border-radius: 1vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   cursor: pointer;
-  margin-left:5vw;
-
-  @media screen and (max-width: 600px) {
-    width: 50%;
-    min-height: 21vw;
-  }
+  margin-top: 5vw;
 `;
 
-//모달 상자
 const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -31,78 +20,28 @@ const ImageContainer = styled.div`
     width: 90%;
     height: 10vw;
     margin: 1vw 0 1vw 0;
-
-    @media (max-width: 600px) {
-      height: 17vw;
-    }
   }
+
   &:hover img {
     transform: scale(1.5);
   }
 `;
 
-// 각 아이템을 감싸는 틀
 const ItemContainer = styled.div`
-  display: flex;
+  width: 100%;
   margin-top: 10px;
-  flex: 0 0 12.5%;
-  box-sizing: border-box;
-  position: relative;
-  border-radius: 3px;
-  overflow: hidden;
-
-  &:hover {
-    .MovieDetail {
-      display: block;
-    }
-    ${ImageContainer} img {
-      transform: scale(1.5);
-    }
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-    @media (max-width: 600px) {
-      height: 17vw;
-    }
-  }
-`;
-
-// 아이템 정보를 나타내는 문단
-const StyledParagraph = styled.p`
   color: ${colors.white};
-  font-size: 2rem;
+  font-size: 0.8vw;
   font-weight: bold;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  gap: 1vw;
-  justify-content: flex-start;
-  align-items: flex-start;
-  cursor: pointer;
+  margin: 0px;
+`;
 
-  .company {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-
+const StyledParagraph = styled.p`
   .name {
-    font-size: 3rem;
-  }
-
-  @media screen and (max-width: 600px) {
-    font-size: 1.5rem;
-
-    .company {font-size: 1.2rem;}
-
-    .name {
-      font-size: 1.8rem;
-    }
+    font-size: 1.2vw;
   }
 `;
+
 
 // 모달 스타일
 export const PillsModal = styled.div`
@@ -119,20 +58,16 @@ export const PillsModal = styled.div`
   text-align: left;
   z-index: 999;
   letter-spacing: 2px;
-  font-size: 2rem;
+  font-size: 1.5rem;
 
   @media screen and (max-width: 600px) {
     font-size: 1.5rem;
     padding: 2rem;
-
-    .close-button {
-      padding: 10px 20px;
-      font-size: 2rem;
-    }
   }
 
   .close-button {
     position: absolute;
+    background-color: ${colors.lightgray};
     top: 10px;
     right: 10px;
     border: none;
@@ -140,21 +75,27 @@ export const PillsModal = styled.div`
     padding: 10px 20px;
     cursor: pointer;
     font-size: 4rem;
+    
+    @media screen and (max-width: 600px) {
+    font-size: 1.5rem;
+    padding: 2rem;
+
+    .close-button {
+      padding: 10px 16px; 
+      font-size: 1rem; 
+    }
   }
 `;
 
 // 이미지를 나타내는 부분
 const ResponsiveImage = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap:8vw;
 
   img {
-    width: 20vw;
+    max-width: 10%;
     height: auto;
-
-    @media (max-width: 600px) {
-      height: 17vw;
-    }
   }
 `;
 
@@ -210,6 +151,7 @@ const DrugListItem = (props) => {
       <ItemContainer>
         <StyledParagraph>
           <span className="company">{company}</span>
+          <br></br>
           <span className="name">{name}</span>
         </StyledParagraph>
       </ItemContainer>
